@@ -11,10 +11,11 @@ import {
 import {
   TrashIcon,
   AdjustmentsHorizontalIcon,
-  ArrowRightIcon,
 } from 'react-native-heroicons/solid';
 import { SvgXml } from 'react-native-svg';
+
 import CategoryItem from '../components/CategoryItem';
+import RestaurantType from '../components/RestaurantType';
 
 const SearchIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="size-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -24,9 +25,35 @@ const SearchIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox=
 function HomeScreen() {
   const categories = [
     { id: 1, title: 'Test' },
-    { id: 1, title: 'Test2' },
+    { id: 2, title: 'Test2' },
   ];
-  const restaurants = [];
+  const restaurants = [
+    {
+      id: 1,
+      name: 'Test',
+      image: require('../assets/restaurantsImages/Anda.jpeg'),
+      star: require('../assets/images/fullStar.png'),
+      description:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      rating: 4.3,
+      category: 'Something',
+      price: 15.5,
+      location: 'Somewhere',
+    },
+    {
+      id: 2,
+      name: 'Test2',
+      image: require('../assets/restaurantsImages/Boho.jpeg'),
+      star: require('../assets/images/fullStar.png'),
+      description:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+      rating: 4.3,
+      category: 'Something',
+      price: 15.5,
+      location: 'Somewhere',
+    },
+  ];
+
   return (
     <>
       <SafeAreaView
@@ -91,24 +118,23 @@ function HomeScreen() {
             ))}
           </ScrollView>
         </View>
-        <View className="mt-5">
-          <View className="mx-4 mb-2 flex-row items-center justify-between">
-            <Text className="text-lg font-bold text-[#f19c13] ">
-              Popular Restaurants
-            </Text>
-            <View className="p-2 bg-gray-300 rounded-full">
-              <ArrowRightIcon size={20} color="black" />
-            </View>
-          </View>
-          <ScrollView
-            vertical
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{
-              paddingBottom: 15,
-              paddingTop: 10,
-            }}
-          ></ScrollView>
-        </View>
+
+        <RestaurantType
+          restaurants={restaurants}
+          restaurantType="Popular Restaurants"
+        />
+
+        <RestaurantType
+          restaurants={restaurants}
+          restaurantType="Top Rated Restaurants"
+        />
+
+        <RestaurantType
+          restaurants={restaurants}
+          restaurantType="Explore New Restaurants"
+        />
+
+        <View className="my-6"></View>
       </ScrollView>
     </>
   );
