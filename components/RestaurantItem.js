@@ -17,7 +17,7 @@ function RestaurantItem({ restaurant }) {
             {restaurant.name}
           </Text>
 
-          <View className="flex-row items-center space-x-2">
+          <View className="mt-1 flex-row items-center space-x-2">
             <Image source={restaurant.star} className="w-4 h-4 object-cover" />
             <Text className="font-semibold text-[#f19c13] text-xs">
               {restaurant.rating}
@@ -28,7 +28,7 @@ function RestaurantItem({ restaurant }) {
           </View>
 
           <View className="flex-row items-center space-x-2 mt-1">
-            <SvgXml xml={locationIcon} color="gray" width={20} height={20} />
+            <SvgXml xml={locationIcon} color="gray" width={18} height={18} />
             <Text className="font-semibold text-gray-500 text-xs">
               {restaurant.location}
             </Text>
